@@ -35,8 +35,8 @@ Use this mode during feature development, hot‑reload, and testing.
 1. **Clone & login**
 
    ```bash
-   git clone git@github.com:<you>/django-vue-docker.git
-   cd django-vue-docker
+   git clone git@github.com:DanerSharifi-FR/django-vue.git
+   cd django-vue
    ```
 
 2. **Environment**
@@ -47,14 +47,13 @@ Use this mode during feature development, hot‑reload, and testing.
 3. **Run the stack**
 
    ```bash
-   # THIS file runs Django in Docker and Vite hot‑reload in Docker
    docker-compose up --build
    ```
 
 4. **Access**
 
-   * **Backend (Django API)** → [http://localhost:8000](http://localhost:8000)
-   * **Frontend (Vue Vite)**  → [http://localhost:5173](http://localhost:5173)
+   * **Backend (Django API)** → http://localhost:8000
+   * **Frontend (Vue Vite)**  → http://localhost:5173
 
 5. **Create superuser**
 
@@ -102,8 +101,8 @@ Ship a lean, secure stack for production. You’ll need to prepare your `docker-
 
 4. **Verify**
 
-   * **Frontend** → [http://your.domain](http://your.domain) (served by nginx)
-   * **Backend**  → [http://your.domain:8000](http://your.domain:8000) (or routed by proxy)
+   * **Frontend** → http://your.domain (served by nginx)
+   * **Backend**  → http://your.domain:8000 (or routed by proxy)
 
 **Production tips:**
 
