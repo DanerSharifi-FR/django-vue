@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.backend.prod
+    # Don’t mount your code—copy it at build time.
+    # volumes:
+    #   - ./backend:/app
+
+  frontend:
+    image: your-dockerhub-username/your-frontend:latest
+    # or build inline:
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    # no volumes, it’s self-contained
+    depends_on:
+      - backend
+
+# (Optional) a Postgres service
+#  db:
+#    image: postgres:15
+#    env_file:
+#      - .env.db.prod
+#    volumes:
+#      - pgdata:/var/lib/postgresql/data
+
+#volumes:
+#  pgdata:
