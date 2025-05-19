@@ -9,10 +9,18 @@ services:
       - .env.backend
 
   frontend:
-    build: ./frontend
+    image: node:20-alpine
+    working_dir: /app
     volumes:
       - ./frontend:/app
+      - /app/node_modules
+    # install deps then launch dev server
+    command: >
+      sh -c "npm install &&
+             npm run dev -- --host 0.0.0.0"
     ports:
-      - "8080:80"
+      - "5173:5173"
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
     depends_on:
       - backend
